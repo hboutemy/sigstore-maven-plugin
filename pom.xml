@@ -24,8 +24,10 @@
   <packaging>maven-plugin</packaging>
 
   <name>sigstore Maven Plugin</name>
+  <description>Maven plugin to sign attached files with sigstore keyless.</description>
 
-  <url>https://sigstore.github.io/sigstore-maven-plugin/</url>
+  <url>https://hboutemy.github.io/sigstore-maven-plugin/</url>
+  <inceptionYear>2022</inceptionYear>
 
   <organization>
     <name>sigstore</name>
@@ -39,6 +41,17 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <organization>Sigstore authors</organization>
+      <organizationUrl>https://sigstore.dev</organizationUrl>
+    </developer>
+    <developer>
+      <id>hboutemy</id>
+      <email>hboutemy@apache.org</email>
+    </developer>
+  </developers>
+
   <prerequisites>
     <maven>${maven.version}</maven>
   </prerequisites>
@@ -51,21 +64,21 @@
   </scm>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/sigstore/sigstore-maven-plugin/issues/</url>
+    <url>https://github.com/hboutemy/sigstore-maven-plugin/issues/</url>
   </issueManagement>
 
   <distributionManagement>
     <snapshotRepository>
-      <id>local</id>
+      <id>staging</id>
       <url>file:./target/staging-repo</url>
     </snapshotRepository>
     <repository>
-      <id>local</id>
+      <id>staging</id>
       <url>file:./target/staging-repo</url>
     </repository>
     <site>
       <id>gh-pages</id>
-      <url>scm:git:ssh://git@github.com/sigstore/sigstore-maven-plugin.git</url>
+      <url>scm:git:ssh://git@github.com/hboutemy/sigstore-maven-plugin.git</url>
     </site>
   </distributionManagement>
 
@@ -413,7 +426,7 @@
           <plugin>
             <groupId>${project.groupId}</groupId>
             <artifactId>sigstore-maven-plugin</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.0-beta-1</version>
             <executions>
               <execution>
                 <id>sign</id>

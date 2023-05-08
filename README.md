@@ -1,9 +1,11 @@
-# sigstore-maven-plugin
+sigstore-maven-plugin
+=====================
 
 This is a Maven plugin that can be used to use the "keyless" signing paradigm supported by Sigstore.
 This plugin is still in early phases, then has known limitations described below.
 
-## sign
+sign
+----
 
 ```xml
       <plugin>
@@ -31,7 +33,8 @@ Known limitations:
 - Maven multi-module build: each module will require an OIDC authentication,
 - 10 minutes siging session: if a build takes more than 10 minutes, a new OIDC authentication will be required each 10 minutes.
 
-## jarsign
+jarsign
+-------
 
 You can [sign JAR file](https://docs.oracle.com/javase/tutorial/deployment/jar/intro.html) with Sigstore and [`jarsigner`](https://docs.oracle.com/en/java/javase/11/tools/jarsigner.html).
 

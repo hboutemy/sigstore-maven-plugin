@@ -29,7 +29,7 @@
   <skin>
     <groupId>org.apache.maven.skins</groupId>
     <artifactId>maven-fluido-skin</artifactId>
-    <version>1.10.0</version>
+    <version>1.11.2</version>
   </skin>
 
   <edit>${project.scm.url}</edit>
@@ -40,12 +40,16 @@
   <body>
     <breadcrumbs>
       <item name="Sigstore" href="https://sigstore.github.io/" />
-      <item name="Maven plugin"  href="https://sigstore.github.io/sigstore-maven-plugin/" />
+      <item name="Maven plugin"  href="https://hboutemy.github.io/sigstore-maven-plugin/" />
     </breadcrumbs>
 
     <menu name="Overview">
       <item name="Introduction" href="index.html"/>
-      <item name="Goals" href="plugin-info.html"/>
+      <item name="Goals" href="plugin-info.html" collapse="false">
+        <item name="sigstore:sign" href="sign-mojo.html"/>
+        <item name="sigstore:jarsign" href="jarsign-mojo.html"/>
+        <item name="sigstore:help" href="help-mojo.html"/>
+      </item>
     </menu>
     <menu ref="reports" />
   </body>
