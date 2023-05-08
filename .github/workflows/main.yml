@@ -23,6 +23,8 @@ on:
 
 jobs:
   build:
+    outputs:
+      hashes: ${{ steps.hash.outputs.hashes }}
     runs-on: ubuntu-20.04
     permissions:
       id-token: write # To run github oidc tests
@@ -37,3 +39,24 @@ jobs:
         run: mvn --batch-mode --update-snapshots -ntp install
       - name: Sign
         run: mvn --batch-mode --update-snapshots -ntp -Pdev verify
+
+      - name: Generate hashes
+        shell: bash
+        id: hash
+        run: |
+          # sha256sum generates sha256 hash for all artifacts.
+          # base64 -w0 encodes to base64 and outputs on a single line.
+          # sha256sum artifact1 artifact2 ... | base64 -w0
+          echo "hashes=$(cd target ; sha256sum *.pom *.jar | base64 -w0)" >> "$GITHUB_OUTPUT"
+
+  provenance:
+    needs: [build]
+    permissions:
+      actions: read # To read the workflow path.
+      id-token: write # To sign the provenance.
+      contents: write # To add assets to a release.
+    # use tags here: https://github.com/slsa-framework/slsa-github-generator#referencing-slsa-builders-and-generators
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0
+    with:
+      base64-subjects: "${{ needs.build.outputs.hashes }}"
+
