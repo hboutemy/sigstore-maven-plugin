@@ -86,6 +86,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>11</maven.compiler.release>
     <maven.version>3.8.4</maven.version>
+    <project.build.outputTimestamp>2023-05-08T11:09:17Z</project.build.outputTimestamp>
   </properties>
 
   <dependencies>
@@ -437,19 +438,19 @@
             </executions>
           </plugin>
           <plugin><!-- prepare Maven Central publication zip file for EA publication https://central.sonatype.org/publish-ea/publish-ea-guide/ -->
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>truezip-maven-plugin</artifactId>
-            <version>1.2</version>
+            <groupId>co.aurasphere.maven.plugins</groupId>
+            <artifactId>zip-maven-plugin</artifactId>
+            <version>1.0.0</version>
             <executions>
               <execution>
                 <id>prepare-publish-zip</id>
                 <phase>deploy</phase>
                 <goals>
-                  <goal>cp</goal>
+                  <goal>zip</goal>
                 </goals>
                 <configuration>
-                  <from>target/staging-repo</from>
-                  <to>target/staging-repo-${artifactId}-${version}.zip</to>
+                  <inputDirectory>target/staging-repo</inputDirectory>
+                  <zipName>staging-repo-${project.artifactId}-${project.version}</zipName>
                 </configuration>
               </execution>
             </executions>
