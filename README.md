@@ -1,17 +1,19 @@
 sigstore-maven-plugin
 =====================
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.hboutemy/sigstore-maven-plugin.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.hboutemy/sigstore-maven-plugin/1.0.0-beta-3/overview)
+
 This is a Maven plugin that can be used to use the "keyless" signing paradigm supported by Sigstore.
 This plugin is still in early phases, then has known limitations described below.
 
-sign
+[sign](https://hboutemy.github.io/sigstore-maven-plugin/sign-mojo.html)
 ----
 
 ```xml
       <plugin>
-        <groupId>dev.sigstore</groupId>
+        <groupId>io.github.hboutemy</groupId>
         <artifactId>sigstore-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-beta-3</version>
         <executions>
           <execution>
             <id>sign</id>
@@ -31,20 +33,20 @@ Notes:
 Known limitations:
 
 - Maven multi-module build: each module will require an OIDC authentication,
-- 10 minutes siging session: if a build takes more than 10 minutes, a new OIDC authentication will be required each 10 minutes.
+- 10 minutes signing session: if a build takes more than 10 minutes, a new OIDC authentication will be required each 10 minutes.
 
 jarsign
 -------
 
 You can [sign JAR file](https://docs.oracle.com/javase/tutorial/deployment/jar/intro.html) with Sigstore and [`jarsigner`](https://docs.oracle.com/en/java/javase/11/tools/jarsigner.html).
 
-Full `jarsign` goal documentation is [available here](https://sigstore.github.io/sigstore-maven-plugin/jarsign-mojo.html), but you can quickly take advantage of the plugin by adding the following configuration into your Maven `pom.xml` file:
+Full `jarsign` goal documentation is [available here](https://hboutemy.github.io/sigstore-maven-plugin/jarsign-mojo.html), but you can quickly take advantage of the plugin by adding the following configuration into your Maven `pom.xml` file:
 
 ```xml
       <plugin>
-        <groupId>dev.sigstore</groupId>
+        <groupId>io.github.hboutemy</groupId>
         <artifactId>sigstore-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-beta-3</version>
         <executions>
           <execution>
             <id>sigstore-jarsign</id>
