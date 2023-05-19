@@ -81,9 +81,9 @@ This plugin is still in early phases, then has known limitations described below
 <h2><a name="sign"></a>sign</h2>
 
 <div class="source"><pre class="prettyprint"><code class="language-xml">      &lt;plugin&gt;
-        &lt;groupId&gt;dev.sigstore&lt;/groupId&gt;
+        &lt;groupId&gt;io.github.hboutemy&lt;/groupId&gt;
         &lt;artifactId&gt;sigstore-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+        &lt;version&gt;1.0.0-beta-3&lt;/version&gt;
         &lt;executions&gt;
           &lt;execution&gt;
             &lt;id&gt;sign&lt;/id&gt;
@@ -104,7 +104,7 @@ This plugin is still in early phases, then has known limitations described below
 <ul>
 
 <li>Maven multi-module build: each module will require an OIDC authentication,</li>
-<li>10 minutes siging session: if a build takes more than 10 minutes, a new OIDC authentication will be required each 10 minutes.</li>
+<li>10 minutes signing session: if a build takes more than 10 minutes, a new OIDC authentication will be required each 10 minutes.</li>
 </ul></section><section>
 <h2><a name="jarsign"></a>jarsign</h2>
 <p>You can <a class="externalLink" href="https://docs.oracle.com/javase/tutorial/deployment/jar/intro.html">sign JAR file</a> with Sigstore and <a class="externalLink" href="https://docs.oracle.com/en/java/javase/11/tools/jarsigner.html"><code>jarsigner</code></a>.</p>
