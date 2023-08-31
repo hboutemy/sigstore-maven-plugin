@@ -23,6 +23,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write # for site gh-pages publication
     runs-on: ubuntu-20.04
 
     steps:
@@ -33,10 +35,9 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify site
+        run: mvn --batch-mode --no-transfer-progress --update-snapshots verify
       - name: Deploy documentation
-        if: ${{ github.ref == 'refs/heads/master' }}
-        uses: JamesIves/github-pages-deploy-action@releases/a1ea191d508feb8485aceba848389d49f80ca2dc #v4.4.3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FOLDER: target/site
+        run:
+          git config --global user.email "git@github.com" &&
+          git config --global user.name "CI" &&
+          mvn --batch-mode --no-transfer-progress site scm-publish:publish-scm
