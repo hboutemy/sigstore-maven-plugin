@@ -20,7 +20,7 @@
 
   <groupId>io.github.hboutemy</groupId>
   <artifactId>sigstore-maven-plugin</artifactId>
-  <version>1.0.0-beta-5-SNAPSHOT</version>
+  <version>1.0.0-beta-5</version>
   <packaging>maven-plugin</packaging>
 
   <name>sigstore Maven Plugin</name>
@@ -60,7 +60,7 @@
     <connection>scm:git:https://github.com/hboutemy/sigstore-maven-plugin.git</connection>
     <developerConnection>scm:git:https://github.com/hboutemy/sigstore-maven-plugin.git</developerConnection>
     <url>https://github.com/hboutemy/sigstore-maven-plugin/tree/${project.scm.tag}</url>
-    <tag>hboutemy</tag>
+    <tag>sigstore-maven-plugin-1.0.0-beta-5</tag>
   </scm>
   <issueManagement>
     <system>GitHub</system>
@@ -86,7 +86,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>11</maven.compiler.release>
     <maven.version>3.8.4</maven.version>
-    <project.build.outputTimestamp>2023-09-02T14:38:18Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2023-09-02T14:56:29Z</project.build.outputTimestamp>
   </properties>
 
   <dependencies>
